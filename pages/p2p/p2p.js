@@ -31,8 +31,13 @@ Page({
 
   takeSnapshot() {
     this.data.arPushcomponent.snapshot(res => {
-      //屏幕快照截图
+      wx.showToast({
+        title: "保存成功"
+      });
       console.log(res);
+      wx.saveImageToPhotosAlbum({
+        filePath: res.tempImagePath
+      })
     });
   },
 

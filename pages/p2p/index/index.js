@@ -18,36 +18,16 @@ Page({
     if (type == "signin") {
       if (this.data.nickName) {
         app.globalData.nickName = this.data.nickName;
-        wx.navigateTo({ url: `/pages/p2p/list/list?name=${this.data.nickName}` });
+        wx.navigateTo({
+          url: `/pages/p2p/list/list?name=${this.data.nickName}`
+        });
       }
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    const cameraCtx = wx.createCameraContext()
-    const ctx = wx.createCanvasContext("shareCanvas");
-    cameraCtx.takePhoto({
-      quality: "normal",
-      success: (result)=>{
-        console.log(result)
-        ctx.drawImage(result.tempImagePath, 0, 0);
-        ctx.draw(true, () => {
-          wx.canvasToTempFilePath({
-            canvasId: "shareCanvas",
-            success: res => {
-              console.log(res)
-              // this.setData({ shareImg: res.tempFilePath });
-              wx.saveImageToPhotosAlbum({
-                filePath: res.tempFilePath
-              })
-            }
-          });
-        });
-      }
-    });
-  },
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
