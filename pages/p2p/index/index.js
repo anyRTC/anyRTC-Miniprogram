@@ -1,0 +1,86 @@
+// pages/meet/index/index.js
+const app = getApp();
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    nickName: ""
+  },
+
+  inputChange(e) {
+    this.setData({
+      nickName: e.detail.value
+    });
+  },
+  btnClick(e) {
+    const type = e.currentTarget.dataset.type;
+    if (type == "signin") {
+      if (this.data.nickName) {
+        app.globalData.nickName = this.data.nickName;
+        wx.navigateTo({ url: `/pages/p2p/list/list?name=${this.data.nickName}` });
+      }
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    const cameraCtx = wx.createCameraContext()
+    const ctx = wx.createCanvasContext("shareCanvas");
+    cameraCtx.takePhoto({
+      quality: "normal",
+      success: (result)=>{
+        console.log(result)
+        ctx.drawImage(result.tempImagePath, 0, 0);
+        ctx.draw(true, () => {
+          wx.canvasToTempFilePath({
+            canvasId: "shareCanvas",
+            success: res => {
+              console.log(res)
+              // this.setData({ shareImg: res.tempFilePath });
+              wx.saveImageToPhotosAlbum({
+                filePath: res.tempFilePath
+              })
+            }
+          });
+        });
+      }
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {},
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {},
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {},
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {},
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {},
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {},
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {}
+});

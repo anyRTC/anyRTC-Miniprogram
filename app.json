@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/meet/index/index",
+    "pages/meet/meet",
+    "pages/rtmpc/index/index",
+    "pages/rtmpc/rtmpc",
+    "pages/p2p/index/index",
+    "pages/p2p/list/list",
+    "pages/p2p/p2p"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "anyRTC视频云",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "ar-push": "./miniprogram_npm/miniprogram-ar-push/index",
+    "ar-play": "./miniprogram_npm/miniprogram-ar-play/index",
+    "pop-view": "./components/popView/popView"
+  }
+}

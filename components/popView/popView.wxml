@@ -1,0 +1,22 @@
+<view style="z-index: {{_index_bg}}" class="pop-view {{_popItem.isShow && 'show'}}">
+  <view class="pop-view_bg" catchtap="{{_popItem.isBgTap ? '_close' : ''}}" catchtouchmove="{{_popItem.isMask ? '_catchtouchmove' : ''}}" />
+  <view class="pop-view_content pop-class {{_popItem.isCenter && 'pv_content_center'}}" catchtouchmove="_catchtouchmove" catchtap="_catchtouchmove">
+    <view class="common" wx:if="{{_popItem.type == 'common'}}">
+      <view class="common_top center">
+          排队提示
+      </view>
+      <view class="common_content">
+        <text>【{{_popItem.title||'视频面签'}}】排队中</text>
+        <text>您前面还有 <text style="color: red;">{{_popItem.waitings || 1}}</text> 人在等待</text>
+        <text>已等待时间: <text style="color: red;">{{_popItem.waitingMin || '01秒'}}</text></text>
+      </view>
+      <view class="center">
+        <span class="common_content_cancel" catchtap="_close">取消</span>
+      </view>
+    </view>
+    <block wx:else>
+      <!-- 如果嵌套在scroll-view中，需要设置将z-index设置为bg的z-index，否则会被遮挡 -->
+      <slot></slot>
+    </block>
+  </view>
+</view>

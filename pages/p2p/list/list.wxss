@@ -1,0 +1,4 @@
+.item {
+  padding: 0 30rpx;
+  width: calc(100vw - 60rpx);
+}

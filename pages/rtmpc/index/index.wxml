@@ -1,0 +1,28 @@
+
+<view class="center">
+  <text class="hint">本示列只展示游客端直播连麦的功能</text>
+</view>
+<view class="center" style='margin-bottom: 10rpx;'>
+  <text class="hint">前往https://beyond.anyrtc.io/demo/lianmai创建房间</text>
+</view>
+<view class="center_vertical row" wx:for="{{rtmpcList}}" wx:key="unique" bindtap="rtmpcClick" data-row="{{item}}">
+    <image class="row_icon" src="{{item.isAudioLive == 1 ? '/images/video_img.png' : '/images/audio_img.png'}}" mode="widthFix" />
+    <view>
+      <text class="row_text">实时直播 {{item.liveTopic}} 房间</text>
+      <view class="center_vertical" style="margin-top: 10rpx;">
+        <image class="row_icon1" src="/images/video_icon.png" mode="widthFix" wx:if="{{item.isAudioLive == 1}}" />
+        <image class="row_icon1_audio" src="/images/audio_icon.png" mode="widthFix" wx:else />
+        <text class="row_text1">{{item.isAudioLive == 1 ? '语音直播' : '视频直播'}}</text>
+        <image class="row_icon2" src="/images/member_icon.png" mode="widthFix" />
+        <text class="row_text2">{{item.members}}</text>
+      </view>
+    </view>
+  </view>
+<view style="position: fixed; bottom: 15vw; width: 100vw;">
+  <button class="signinBtn" type='primary' bindtap='getRoomList'>刷新房间列表</button>
+</view>
+
+<view class="bottom">
+  <text>V 3.0.0</text>
+  <text>技术支持：zhangjianqiang@dync.cc</text>
+</view>

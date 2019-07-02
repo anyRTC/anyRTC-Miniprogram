@@ -1,0 +1,42 @@
+.other_view {
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  position: absolute;
+  right: 18rpx;
+  bottom: 120rpx;
+  width: calc(100vw/3);
+}
+.other_view .ar-play {
+  width: calc(100vw/3);
+  height: calc(100vw/3*3/4);
+  margin-top: 18rpx;
+}
+.message_content {
+  z-index: 100;
+  position: absolute;
+  left: 0;
+  bottom: 120rpx;
+  width: 420rpx;
+  height: 260rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 22rpx;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.operation_bar {
+  display: flex;
+  z-index: 10;
+  position: absolute;
+  left: 18rpx;
+  bottom: 34rpx;
+  width: calc(100vw-36rpx);
+}
+.operation_bar cover-image {
+  width: 66rpx;
+  height: 66rpx;
+  margin-left: 18rpx;
+}
