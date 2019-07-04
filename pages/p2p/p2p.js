@@ -165,7 +165,7 @@ Page({
   handlePushStatus(e) {
     let data = e.detail;
     let code = data.code;
-    return;
+    
     console.log("handlePushStatus", data);
 
     switch (code) {
@@ -232,20 +232,41 @@ Page({
   },
 
   handleRoomEvent(e) {
+    let that = this;
     let data = e.detail;
 
     console.log("handleRoomEvent", data);
+    let members = that.data.members;
+
     switch (data.tag) {
-      case "MemberChange":
-        let arrMember = data.detail;
-        arrMember.map(item => {
-          item.width = 100;
-          item.height = 100;
+      case "MemberJoin":
+        let newMember = data.detail;
+
+        newMember.map(item => {
+          members.push(item);
         });
 
-        this.setData({
-          members: arrMember
+        that.setData({
+          members: members
         });
+        break;
+      case "MemberLeave":
+        let leaveUsers = data.detail;
+
+        members.map((item, index) => {
+          leaveUsers.map((i, n) => {
+            if (i.pubID === item.pubID) {
+              members.splice(index, 1);
+            }
+          });
+        });
+
+        that.setData({
+          members: members
+        });
+        break;
+      case "PushError":
+        //重新进会
         break;
     }
   },
