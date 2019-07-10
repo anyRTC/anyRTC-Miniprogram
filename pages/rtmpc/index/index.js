@@ -1,5 +1,5 @@
 // pages/meet/index/index.js
-const config = require('../../../utils/config.js');
+import config from "../../../utils/config.js";
 
 Page({
 
@@ -25,7 +25,7 @@ Page({
     let that = this;
 
     wx.request({
-      url: "https://" + config.arServercUrl + 'livelist_no_auth?AppID=' + config.APP_ID + '&DeveloperID=' + config.DEV_ID,
+      url: 'https://www.anyrtc.io/anyapi/V1/livelist_no_auth?AppID=' + config.RTMPC_APP_ID + '&DeveloperID=' + config.RTMPC_DEV_ID,
       success(res) {
         let data = res.data;
         if (data.code) {
