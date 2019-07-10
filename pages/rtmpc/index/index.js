@@ -25,8 +25,7 @@ Page({
     let that = this;
 
     wx.request({
-      // url: config.arServercUrl + 'livelist_no_auth?AppID=' + config.APP_ID + '&DeveloperID=' + config.DEV_ID,
-      url: 'https://www.anyrtc.io/anyapi/V1/livelist_no_auth?AppID=anyrtcFJRFGvPs5Bp6&DeveloperID=95878050',
+      url: "https://" + config.arServercUrl + 'livelist_no_auth?AppID=' + config.APP_ID + '&DeveloperID=' + config.DEV_ID,
       success(res) {
         let data = res.data;
         if (data.code) {
