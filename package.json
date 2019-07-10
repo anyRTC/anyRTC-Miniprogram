@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "miniprogram-ar-call": "0.0.8",
+    "miniprogram-ar-call": "0.0.9",
     "miniprogram-ar-meet": "^1.0.18",
     "miniprogram-ar-play": "^1.0.6",
     "miniprogram-ar-push": "^1.0.12",

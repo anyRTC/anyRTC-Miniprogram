@@ -12,9 +12,9 @@
     bindNetStateChange="handlePushNetChange"
     bindRoomEvent="handleRoomEvent">
     <cover-view class="operation_bar" wx-if="{{pushURL}}">
-      <cover-view>
+      <!-- <cover-view>
         <cover-image bindtap="sendMessage" src="/images/icon_message.png" mode="widthFix" />
-      </cover-view>
+      </cover-view> -->
       <cover-view>
         <cover-image bindtap="takeSnapshot" src="/images/icon_screenshot.png" mode="widthFix" />
       </cover-view>
