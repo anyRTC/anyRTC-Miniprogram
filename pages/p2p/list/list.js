@@ -87,7 +87,7 @@ Page({
     });
   },
   closePop() {
-    this.data.call.endCall("888881");
+    // this.data.call.endCall("888881");
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -112,6 +112,7 @@ Page({
    */
   onUnload: function() {
     this.data.call.turnOff();
+    app.globalData.call = undefined;
   },
 
   /**

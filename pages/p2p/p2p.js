@@ -77,7 +77,6 @@ Page({
       call,
       arPushcomponent: this.selectComponent("#arPush")
     });
-    app.globalData.call = undefined;
     // this.initRTC();
     // this.data.call.turnOn(app.globalData.nickName, "");
     this.initCall();
@@ -170,7 +169,7 @@ Page({
   handlePushStatus(e) {
     let data = e.detail;
     let code = data.code;
-    
+
     console.log("handlePushStatus", data);
 
     switch (code) {
