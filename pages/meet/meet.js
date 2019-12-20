@@ -51,7 +51,7 @@ Page({
           //   url: "/pages/meet/index/index"
           // });
           wx.navigateBack({
-            fail () {
+            fail() {
               wx.reLaunch({
                 url: "/pages/meet/index/index"
               });
@@ -91,10 +91,10 @@ Page({
       wxmeet: wxmeet,
       arPusherComponent: that.selectComponent("#arPush")
     });
-    
+
     wxmeet.configServer(config.arServercUrl, config.arServerPort);
     //初始化
-    wxmeet.setUserToken('');
+    wxmeet.setUserToken("");
     wxmeet.initAppInfo(config.MEET_APP_ID, config.MEET_APP_TOKEN);
 
     let userid = "" + parseInt(Math.random() * 10000);
@@ -115,19 +115,20 @@ Page({
         title: "获取推流地址...",
         mask: true
       });
+      wxmeet.sendUserMessage("haha", "avatar", "{type:1}" + Date.now());
     });
     //加入房间失败回调
     wxmeet.on("onJoinRoomFaild", (code, info) => {
       console.log("onJoinRoomFaild", code, info);
       wx.showToast({
-        icon: 'none',
-        title: '加入房间失败',
+        icon: "none",
+        title: "加入房间失败",
         complete: function() {
           wx.reLaunch({
             url: "/pages/index/index"
           });
         }
-      })
+      });
     });
     //收到离开房间指令,收到该回调需要离开房间
     wxmeet.on("onLeaveMeet", (code, info) => {
@@ -149,6 +150,10 @@ Page({
           title: "获取房间签名失败"
         });
       }
+    });
+
+    wxmeet.on("onUserMessage", (UserName, NickName, HeaderUrl, Content) => {
+      console.log("------", UserName, NickName, HeaderUrl, Content);
     });
   },
 
@@ -366,12 +371,12 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     // return custom share data when user share.
     return {
-      title: '快来参加我们的视频会议吧~',
-      path: '/pages/meet/meet?roomId=' + this.data.roomId
-    }
+      title: "快来参加我们的视频会议吧~",
+      path: "/pages/meet/meet?roomId=" + this.data.roomId
+    };
   },
 
   /**
