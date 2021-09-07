@@ -1,3 +1,10 @@
+# 重要提醒
+anyRTC 对该版本已经不再维护，[前往新版本地址](https://github.com/anyRTC/ArMiniappSDK)。
+
+**公司网址： [www.anyrtc.io](https://www.anyrtc.io)**
+
+
+
 # 实时视频会议小程序SDK
 
 > 使用此组件需要依赖小程序基础库 2.2.1 以上版本，同时依赖开发者工具的 npm 构建。具体详情可查阅[官方 npm 文档](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)。
